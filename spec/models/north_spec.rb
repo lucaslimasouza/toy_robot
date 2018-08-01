@@ -24,4 +24,10 @@ RSpec.describe North, type: :model do
       expect(coordinate.y).to eq 3
     end
   end
+
+  describe '#report' do
+    it 'return NORTH' do
+      expect(subject.report).to eq 'NORTH'
+    end
+  end
 end
