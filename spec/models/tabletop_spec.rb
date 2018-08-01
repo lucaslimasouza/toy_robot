@@ -20,4 +20,10 @@ RSpec.describe Tabletop, type: :model do
       expect(subject.dimension).to eq(10)
     end
   end
+
+  describe '#compass_pointer' do
+    it 'return the NORTH pointer' do
+      expect(subject.compass_pointer('NORTH')).to be_an_instance_of North
+    end
+  end
 end

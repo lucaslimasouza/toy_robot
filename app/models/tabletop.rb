@@ -9,5 +9,9 @@ class Tabletop
 
   def dimension
     @axisX + @axisY
-   end
+  end
+
+  def compass_pointer(orientation)
+    return North.new if orientation == 'NORTH'
+  end
 end
