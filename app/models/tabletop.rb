@@ -6,4 +6,8 @@ class Tabletop
   attr_accessor :axisX, :axisY, :unit_grid
 
   validates :axisX, :axisY, :unit_grid, presence: true
+
+  def dimension
+    @axisX + @axisY
+   end
 end
