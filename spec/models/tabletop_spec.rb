@@ -25,5 +25,9 @@ RSpec.describe Tabletop, type: :model do
     it 'return the NORTH pointer' do
       expect(subject.compass_pointer('NORTH')).to be_an_instance_of North
     end
+
+    it 'return the SOUTH pointer' do
+      expect(subject.compass_pointer('SOUTH')).to be_an_instance_of South
+    end
   end
 end
