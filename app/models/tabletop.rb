@@ -14,5 +14,6 @@ class Tabletop
   def compass_pointer(orientation)
     return North.new if orientation == 'NORTH'
     return South.new if orientation == 'SOUTH'
+    return East.new if orientation == 'EAST'
   end
 end
