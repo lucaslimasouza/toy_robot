@@ -2,6 +2,7 @@
 
 class Tabletop
   include ActiveModel::Model
+  include Compass
 
   attr_accessor :axisX, :axisY, :unit_grid
 
@@ -9,13 +10,5 @@ class Tabletop
 
   def dimension
     @axisX + @axisY
-  end
-
-  def compass_pointer(orientation)
-    return North.new if orientation == 'NORTH'
-    return South.new if orientation == 'SOUTH'
-    return East.new if orientation == 'EAST'
-    return West.new if orientation == 'WEST'
-    North.new
   end
 end
