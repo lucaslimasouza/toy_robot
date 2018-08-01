@@ -16,5 +16,6 @@ class Tabletop
     return South.new if orientation == 'SOUTH'
     return East.new if orientation == 'EAST'
     return West.new if orientation == 'WEST'
+    North.new
   end
 end
