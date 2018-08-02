@@ -15,6 +15,10 @@ class Robot
     @orientation = @orientation.to_left
   end
 
+  def right
+    @orientation = @orientation.to_right
+  end
+
   def report
     "#{@coordinate.report},#{@orientation.report}"
   end

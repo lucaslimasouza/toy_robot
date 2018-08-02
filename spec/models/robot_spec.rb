@@ -27,6 +27,12 @@ RSpec.describe Robot, type: :model do
 
         expect(subject.report).to eq '1,2,WEST'
       end
+
+      it 'turn right on Tabletop' do
+        subject.play('RIGHT')
+
+        expect(subject.report).to eq '1,2,EAST'
+      end
     end
   end
 end
