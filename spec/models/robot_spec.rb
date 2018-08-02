@@ -33,6 +33,14 @@ RSpec.describe Robot, type: :model do
 
         expect(subject.report).to eq '1,2,EAST'
       end
+
+      it 'does not play' do
+        10.times do
+          subject.play('MOVE')
+        end
+
+        expect(subject.report).to eq '1,5,NORTH'
+      end
     end
 
     context 'facing to SOUTH' do
@@ -116,6 +124,22 @@ RSpec.describe Robot, type: :model do
         subject.play('RIGHT')
 
         expect(subject.report).to eq '1,2,NORTH'
+      end
+    end
+
+    context 'negative coordenate facing to SOUTH' do
+      let!(:orientation) { South.new }
+      subject do
+        Robot.new(
+          Coordinate.new(x: -1, y: 2),
+          orientation,
+          tabletop
+        )
+      end
+
+      it 'does not move on Tabletop' do
+        subject.play('MOVE')
+        expect(subject.report).to eq '-1,2,SOUTH'
       end
     end
   end
