@@ -1,0 +1,44 @@
+<h2>Insert commands</h2>
+
+<h3>example:</h3>
+
+<p>
+PLACE 1,2,EAST</br>
+MOVE</br>
+MOVE</br>
+LEFT</br>
+MOVE</br>
+REPORT
+</p>
+
+<%= form_tag(robots_path, method: :get) do %>
+  <%= text_area_tag :commands, nil, cols: 30, rows: 10 %>
+  <%= submit_tag 'Play' %>
+<% end %>
+
+</br>
+
+<table>
+  <thead>
+    <tr>
+      <% (1..@tabletop.axisX).each do |unit| %>
+        <th> <%= unit %></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% (1..@tabletop.axisX).each do |line| %>
+      <tr>
+        <% (1..@tabletop.axisY).each do |column| %>
+          <td>
+            <% if show_robot_position?(@position, line, column) %>
+              I'm here <%= @position[2] %>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
