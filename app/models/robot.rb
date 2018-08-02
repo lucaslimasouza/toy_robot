@@ -11,6 +11,12 @@ class Robot
     send(command.downcase)
   end
 
+  def report
+    "#{@coordinate.report},#{@orientation.report}"
+  end
+
+  private
+
   def left
     @orientation = @orientation.to_left
   end
@@ -18,12 +24,6 @@ class Robot
   def right
     @orientation = @orientation.to_right
   end
-
-  def report
-    "#{@coordinate.report},#{@orientation.report}"
-  end
-
-  private
 
   def move
     new_coordinate = @orientation.move(
