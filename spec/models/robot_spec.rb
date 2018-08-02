@@ -19,8 +19,13 @@ RSpec.describe Robot, type: :model do
 
       it 'move one step on Tabletop' do
         subject.play('MOVE')
-
         expect(subject.report).to eq '1,3,NORTH'
+      end
+
+      it 'turn left on Tabletop' do
+        subject.play('LEFT')
+
+        expect(subject.report).to eq '1,2,WEST'
       end
     end
   end

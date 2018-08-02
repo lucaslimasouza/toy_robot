@@ -11,6 +11,10 @@ class Robot
     send(command.downcase)
   end
 
+  def left
+    @orientation = @orientation.to_left
+  end
+
   def report
     "#{@coordinate.report},#{@orientation.report}"
   end
