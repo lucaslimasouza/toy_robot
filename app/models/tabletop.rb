@@ -2,7 +2,6 @@
 
 class Tabletop
   include ActiveModel::Model
-  include Compass
 
   attr_accessor :axisX, :axisY, :unit_grid
 
