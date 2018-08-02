@@ -62,5 +62,33 @@ RSpec.describe Robot, type: :model do
         expect(subject.report).to eq '1,2,WEST'
       end
     end
+
+    context 'facing to EAST' do
+      let!(:orientation) { East.new }
+      subject do
+        Robot.new(
+          coordinate,
+          orientation,
+          tabletop
+        )
+      end
+
+      it 'move one step on Tabletop' do
+        subject.play('MOVE')
+        expect(subject.report).to eq '2,2,EAST'
+      end
+
+      it 'turn left on Tabletop' do
+        subject.play('LEFT')
+
+        expect(subject.report).to eq '1,2,NORTH'
+      end
+
+      it 'turn right on Tabletop' do
+        subject.play('RIGHT')
+
+        expect(subject.report).to eq '1,2,SOUTH'
+      end
+    end
   end
 end
