@@ -14,7 +14,7 @@ RSpec.describe Coordinate, type: :model do
 
   describe '#report' do
     it 'return x y value' do
-      expect(subject.report).to eq '1 2'
+      expect(subject.report).to eq '1,2'
     end
   end
 end

@@ -8,6 +8,6 @@ class Coordinate
   validates :x, :y, presence: true
 
   def report
-    "#{@x} #{@y}"
+    "#{@x},#{@y}"
   end
 end
