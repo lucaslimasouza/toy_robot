@@ -9,12 +9,16 @@ module BaseSimulator
 
   def simulate
     report = ''
-    default_commands.each do |line|
-      if line.include?('PLACE')
-        @robot = get_robot(line.delete("\n"))
-      elsif @robot
-        report = @robot.play(line.delete("\n").strip)
+    begin
+      default_commands.each do |line|
+        if line.include?('PLACE')
+          @robot = get_robot(line.delete("\n"))
+        elsif @robot
+          report = @robot.play(line.delete("\n").strip)
+        end
       end
+    rescue Exception => e
+      puts "Error on play the Robot => #{e}"
     end
     report
   end

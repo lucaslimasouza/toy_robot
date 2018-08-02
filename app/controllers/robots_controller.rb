@@ -5,6 +5,10 @@ class RobotsController < ApplicationController
 
   def index
     @tabletop = Tabletop.new(axisX: 5, axisY: 5, unit_grid: 1)
-    @position = simulate.split(',') if params[:commands]
+    begin
+      @position = simulate.split(',') if params[:commands]
+    rescue Exception => e
+      puts "Error on play the Robot => #{e}"
+    end
   end
 end
