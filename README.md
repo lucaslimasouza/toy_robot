@@ -1,24 +1,51 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+If you don't have Ruby and Rails installed in your machine, you can follow the
+steps below:
 
-Things you may want to cover:
+# Required
 
-* Ruby version
+* [Docker Engine](https://docs.docker.com/installation/)
+* [Docker Compose](https://docs.docker.com/compose/install/)
 
-* System dependencies
+To run the application do:
 
-* Configuration
+1-)
 
-* Database creation
+```
+  docker-compose build
+```
 
-* Database initialization
+After you finish as useful images, you can run an application using the command below:
 
-* How to run the test suite
+2-)
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+  docker-compose up
+```
 
-* Deployment instructions
+3-) To create the database, in other terminal run the command:
 
-* ...
+```
+  docker-compose run web rake db:setup
+```
+
+The application can now be accessed by the host http://localhost:3000
+
+## Scripts
+
+run the command:
+
+It'll start a robot with commands in script/commands.txt
+
+```
+  docker-compose run web rails runner script/robot_simulator.rb
+```
+
+## Tests
+
+run the command:
+
+```
+  docker-compose run web rspec
+```
