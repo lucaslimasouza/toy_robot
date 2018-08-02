@@ -9,6 +9,7 @@ RSpec.describe Coordinate, type: :model do
   describe 'validations' do
     %i[x y].each do |field|
       it { is_expected.to validate_presence_of field }
+      it { validate_numericality_of(field).is_greater_than_or_equal_to(0) }
     end
   end
 

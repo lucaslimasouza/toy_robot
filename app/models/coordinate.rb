@@ -6,6 +6,7 @@ class Coordinate
   attr_accessor :x, :y
 
   validates :x, :y, presence: true
+  validates :x, :y, numericality: { greater_than_or_equal_to: 0 }
 
   def report
     "#{@x},#{@y}"
